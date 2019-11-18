@@ -3,12 +3,15 @@ package com.github.korchemkin;
 import java.util.Arrays;
 
 public class Sorter {
-
     private int[] copy(int[] arr) {
         return Arrays.copyOf(arr, arr.length);
     }
 
     public int[] insertionSort(int[] arr) {
+        if (arr.length < 2) {
+            return arr;
+        }
+
         int[] result = copy(arr);
         int temp;
         int i;
@@ -23,11 +26,14 @@ public class Sorter {
                 }
             }
         }
-
         return result;
     }
 
     public int[] selectionSort(int[] arr) {
+        if (arr.length < 2) {
+            return arr;
+        }
+
         int[] result = copy(arr);
         int temp;
         int i;
@@ -52,18 +58,22 @@ public class Sorter {
                 result[minValIndex] = temp;
             }
         }
-
         return result;
     }
 
     public int[] bubbleSort(int[] arr) {
+        if (arr.length < 2) {
+            return arr;
+        }
+
         int[] result = copy(arr);
         int temp;
         int i;
         int j;
 
-        for (i = 0; i < result.length - 1; i++) {
-            for (j = 0; j < result.length - 1 - i; j++) {
+        int len = result.length - 1;
+        for (i = 0; i < len; i++) {
+            for (j = 0; j < len - i; j++) {
                 if (result[j] > result[j + 1]) {
                     temp = result[j];
                     result[j] = result[j + 1];
@@ -71,7 +81,17 @@ public class Sorter {
                 }
             }
         }
+        return result;
+    }
 
+    public int[] mergeSort(int[] arr) {
+        if (arr.length < 2) {
+            return arr;
+        }
+
+        int[] result = copy(arr);
+        MergeSorter mergeSorter = new MergeSorter();
+        mergeSorter.sort(result, 0, result.length - 1);
         return result;
     }
 }
