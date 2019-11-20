@@ -2,8 +2,7 @@ package com.github.korchemkin;
 
 import java.util.Random;
 
-class QuickSort {
-
+class QuickSorter {
 	void sort(int[] list) {
 		sort(list, 0, list.length - 1);
 	}

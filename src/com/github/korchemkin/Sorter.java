@@ -101,8 +101,8 @@ public class Sorter {
         }
 
         int[] result = copy(arr);
-        QuickSort quickSort = new QuickSort();
-        quickSort.sort(result);
+        QuickSorter quickSorter = new QuickSorter();
+        quickSorter.sort(result);
         return result;
     }
 }
