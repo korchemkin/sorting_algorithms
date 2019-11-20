@@ -94,4 +94,15 @@ public class Sorter {
         mergeSorter.sort(result, 0, result.length - 1);
         return result;
     }
+
+    public int[] quickSort(int[] arr) {
+        if (arr.length < 2) {
+            return arr;
+        }
+
+        int[] result = copy(arr);
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(result);
+        return result;
+    }
 }
